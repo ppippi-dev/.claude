@@ -30,7 +30,11 @@
       "Bash(helm template:*)",
       "Bash(kubectl get:*)",
       "Bash(kubectl logs:*)",
-      "Bash(kubectl describe:*)"
+      "Bash(kubectl describe:*)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(mv:*)",
+      "WebFetch(domain:*)"
     ],
     "deny": [],
     "ask": []
