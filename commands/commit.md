@@ -53,6 +53,7 @@ git commit -m "Changes"
 3. **Pre-Commit 검사**
    - 시크릿 검사: API 키, 비밀번호, 토큰 등 민감 정보 확인
    - 디버그 코드 제거: console.log, print 등 제거
+   - 파일 끝 줄바꿈 검증: 모든 파일이 newline으로 끝나는지 확인
    - Python 프로젝트: `uv run pre-commit run` 실행
 
 4. **커밋**
@@ -97,6 +98,48 @@ git commit -m "Changes"
 
 ## PR Creation (gh CLI)
 
+### PR Title Format
+
+```
+<type>(<scope>): <brief description>
+```
+
+### PR Body Template
+
+```markdown
+## Summary
+<!-- 변경 사항을 1-3개 bullet point로 요약 -->
+
+-
+-
+
+## Changes
+<!-- 주요 변경 파일/로직 설명 -->
+
+-
+
+## Test Plan
+<!-- 테스트 방법 체크리스트 -->
+
+- [ ] Unit tests 추가/수정
+- [ ] 로컬 테스트 완료
+- [ ]
+
+## Related Issues
+<!-- 관련 이슈/티켓 링크 -->
+
+Closes #
+```
+
+### PR Best Practices
+
+1. **작은 단위로 분리**: 하나의 PR은 하나의 목적
+2. **Self-review 먼저**: 제출 전 본인이 먼저 검토
+3. **스크린샷 첨부**: UI 변경 시 before/after 이미지
+4. **Breaking changes 명시**: API 변경 시 명확히 표시
+
+### gh CLI Usage
+
 ```bash
 # PR 생성
 gh pr create --title "feat(auth): add login" --body "## Summary
@@ -106,6 +149,9 @@ gh pr create --title "feat(auth): add login" --body "## Summary
 ## Test Plan
 - [ ] Unit tests 추가
 - [ ] 로컬 테스트 완료"
+
+# Draft PR 생성
+gh pr create --draft --title "WIP: feature implementation"
 
 # PR 상태 확인
 gh pr status

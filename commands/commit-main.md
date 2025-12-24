@@ -35,6 +35,7 @@ description: "main 브랜치에 직접 커밋하고 푸시 (Conventional Commits
 3. **Pre-Commit 검사**
    - 시크릿 검사: API 키, 비밀번호, 토큰 등 민감 정보 확인
    - 디버그 코드 제거: console.log, print 등 제거
+   - 파일 끝 줄바꿈 검증: 모든 파일이 newline으로 끝나는지 확인
    - Python 프로젝트: `uv run pre-commit run` 실행
 
 4. **커밋**
