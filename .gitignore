@@ -9,3 +9,5 @@
 !skills/**
 
 socar-resource-naming/
+!commands/
+!commands/**
