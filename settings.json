@@ -6,6 +6,7 @@
   "permissions": {
     "allow": [
       "Bash(docker ps:*)",
+      "Bash(docker logs:*)",
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(uv run python:*)",
@@ -16,7 +17,9 @@
       "Bash(gh run view:*)",
       "Bash(grep:*)",
       "Bash(uv run pre-commit run:*)",
+      "Bash(uv lock:*)",
       "Bash(gh run:*)",
+      "Bash(git add:*)",
       "Bash(ls:*)",
       "mcp__playwright__browser_click",
       "mcp__playwright__browser_take_screenshot",
@@ -27,6 +30,9 @@
       "mcp__playwright__browser_wait_for",
       "mcp__playwright__browser_console_messages",
       "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_close",
       "Bash(cp:*)",
       "WebSearch",
       "Skill(git-practices)",
@@ -41,6 +47,7 @@
       "Bash(mkdir:*)",
       "Bash(curl:*)",
       "Bash(mv:*)",
+      "Bash(wc:*)",
       "WebFetch(domain:*)"
     ],
     "deny": [],
