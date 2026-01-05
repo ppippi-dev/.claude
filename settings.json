@@ -1,8 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "bash -c 'node \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\"'"
-  },
   "env": {
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000",
     "MAX_THINKING_TOKENS": "31999"
@@ -46,6 +42,7 @@
       "Skill(helm-infra)",
       "Skill(python-style)",
       "Skill(codex-search)",
+      "Skill(skill-creator)",
       "WebFetch(domain:*)",
       "WebSearch",
       "mcp__playwright__browser_click",
@@ -64,10 +61,15 @@
     "deny": [],
     "ask": []
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'node \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\"'"
+  },
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "claude-hud@claude-hud": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "model": "opus"
 }
