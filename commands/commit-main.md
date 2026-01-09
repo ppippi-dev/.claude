@@ -52,9 +52,6 @@ description: "main 브랜치에 직접 커밋하고 푸시 (Conventional Commits
 
 ## Commit Rules
 
-- Claude 생성 표시 제거:
-  - ❌ `🤖 Generated with [Claude Code]`
-  - ❌ `Co-Authored-By: Claude`
 - 간결하고 명확한 영어로 작성
 - 현재 시제 사용 ("Add feature" not "Added feature")
 - .env, credentials 등 민감한 파일은 커밋하지 않음
