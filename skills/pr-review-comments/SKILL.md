@@ -7,6 +7,17 @@ description: "PR 리뷰 코멘트를 확인하고 처리하는 워크플로우. 
 
 PR 리뷰 코멘트를 순차적으로 확인하고, 반영이 필요한 내용은 수정 후 자동으로 resolve 처리하는 워크플로우.
 
+## 스크립트 실행 경로
+
+스크립트 실행 시 반드시 `~` 경로를 사용:
+
+```bash
+~/.claude/skills/pr-review-comments/scripts/get_review_threads.py
+~/.claude/skills/pr-review-comments/scripts/resolve_thread.py
+```
+
+절대경로(`/Users/...`)가 아닌 `~/.claude/...` 형식을 사용할 것.
+
 ## 워크플로우
 
 ### 0. PR 정보 파싱
@@ -21,7 +32,7 @@ GitHub PR URL에서 정보 추출:
 ### 1. PR 코멘트 조회
 
 ```bash
-./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
+~/.claude/skills/pr-review-comments/scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
 ```
 
 - unresolved 코멘트만 가져옴 (--all 옵션으로 전체 조회 가능)
@@ -43,7 +54,7 @@ GitHub PR URL에서 정보 추출:
 코드 반영 완료 후 자동으로 resolve:
 
 ```bash
-./scripts/resolve_thread.py <thread_id>
+~/.claude/skills/pr-review-comments/scripts/resolve_thread.py <thread_id>
 ```
 
 ## 판단 기준
@@ -67,10 +78,10 @@ GitHub PR URL에서 정보 추출:
 사용자: https://github.com/socar-inc/ai-agent-platform/pull/123 리뷰 확인해줘
 
 1. URL 파싱 → owner: socar-inc, repo: ai-agent-platform, pr_number: 123
-2. get_review_threads.py socar-inc ai-agent-platform 123 --format summary --resolve-outdated
+2. ~/.claude/skills/pr-review-comments/scripts/get_review_threads.py socar-inc ai-agent-platform 123 --format summary --resolve-outdated
    → outdated 코멘트 2개 자동 resolve됨
 3. 코멘트 1/2: src/api.py:42 "이 함수에 에러 핸들링 추가 필요"
-   → 코드 읽기 → 에러 핸들링 추가 → resolve_thread.py <thread_id>
+   → 코드 읽기 → 에러 핸들링 추가 → ~/.../resolve_thread.py <thread_id>
 4. 코멘트 2/2: src/utils.py:15 "이 변수명이 뭔가요?"
    → 단순 질문이므로 스킵, 다음으로
 5. 완료 보고
@@ -84,13 +95,13 @@ PR의 리뷰 스레드 목록 조회 (GraphQL API 사용)
 
 ```bash
 # 기본 (unresolved만)
-./scripts/get_review_threads.py <owner> <repo> <pr_number>
+~/.claude/skills/pr-review-comments/scripts/get_review_threads.py <owner> <repo> <pr_number>
 
 # 전체 조회
-./scripts/get_review_threads.py <owner> <repo> <pr_number> --all
+~/.claude/skills/pr-review-comments/scripts/get_review_threads.py <owner> <repo> <pr_number> --all
 
 # 요약 형식 + outdated 자동 resolve (권장)
-./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
+~/.claude/skills/pr-review-comments/scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
 ```
 
 ### resolve_thread.py
@@ -99,8 +110,8 @@ PR의 리뷰 스레드 목록 조회 (GraphQL API 사용)
 
 ```bash
 # Resolve
-./scripts/resolve_thread.py <thread_id>
+~/.claude/skills/pr-review-comments/scripts/resolve_thread.py <thread_id>
 
 # Unresolve
-./scripts/resolve_thread.py <thread_id> --unresolve
+~/.claude/skills/pr-review-comments/scripts/resolve_thread.py <thread_id> --unresolve
 ```
