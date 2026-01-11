@@ -4,7 +4,6 @@
     "MAX_THINKING_TOKENS": "31999"
   },
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "Bash(cat:*)",
       "Bash(cp:*)",
@@ -64,7 +63,8 @@
       "Bash(~/.claude/skills/pr-review-comments/scripts/resolve_thread.py:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "defaultMode": "acceptEdits"
   },
   "model": "opus",
   "statusLine": {
@@ -76,7 +76,8 @@
     "context7@claude-plugins-official": true,
     "claude-hud@claude-hud": true,
     "superpowers@superpowers-marketplace": true,
-    "code-simplifier@claude-plugins-official": true
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-wiggum@claude-code-plugins": true
   },
   "alwaysThinkingEnabled": true
 }
